@@ -24,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:prod": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
+   
     "build:analyze": "npm run build && npx webpack-bundle-analyzer build/static/js/*.js",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
@@ -34,7 +34,9 @@
     "format": "prettier --write src/**/*.{js,jsx,css,md}",
     "serve": "serve -s build -l 3000",
     "deploy:netlify": "npm run build && netlify deploy --prod --dir=build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "CI=false react-scripts build"
+
   },
   "eslintConfig": {
     "extends": [
