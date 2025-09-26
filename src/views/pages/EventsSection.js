@@ -51,23 +51,24 @@ const EventsSection = () => {
               <p className="event-description">{event.description}</p>
               
               <div className="event-info-grid">
-                <div className="info-item">
-                  <Calendar size={18} /> 
-                  <span>{new Date(event.date_time).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
-                </div>
-                <div className="info-item">
-                  <MapPin size={18} /> <span>{event.location || "TBD"}</span>
-                </div>
-                <div className="info-item">
-                  <Tag size={18} /> <span>{event.event_type}</span>
-                </div>
-                <div className="info-item">
-                  <CreditCard size={18} /> <span>{event.fees > 0 ? `₹${event.fees}` : "Free"}</span>
-                </div>
-                <div className="info-item">
-                  <Users size={18} /> <span>{event.capacity}</span>
-                </div>
-              </div>
+  <div className="info-item calendar">
+    <Calendar size={16} />
+    <span>{new Date(event.date_time).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+  </div>
+  <div className="info-item map">
+    <MapPin size={16} /> <span>{event.location || "TBD"}</span>
+  </div>
+  <div className="info-item tag">
+    <Tag size={16} /> <span>{event.event_type}</span>
+  </div>
+  <div className="info-item fees">
+    <CreditCard size={16} /> <span>{event.fees > 0 ? `₹${event.fees}` : "Free"}</span>
+  </div>
+  <div className="info-item users">
+    <Users size={16} /> <span>{event.capacity}</span>
+  </div>
+</div>
+
             </div>
           </div>
         ))}

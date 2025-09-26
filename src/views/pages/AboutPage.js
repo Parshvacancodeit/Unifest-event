@@ -4,44 +4,9 @@ import './AboutPage.css';
 
 
 const AboutPage = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'Sarah Johnson',
-      role: 'Founder & CEO',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      bio: 'With over 10 years in event management, Sarah founded Uni Fest to revolutionize how people discover and create events.'
-    },
-    {
-      id: 2,
-      name: 'Mike Chen',
-      role: 'CTO',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      bio: 'Tech innovator with a passion for building scalable platforms that connect people and communities worldwide.'
-    },
-    {
-      id: 3,
-      name: 'Emily Davis',
-      role: 'VP of Marketing',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      bio: 'Creative marketing strategist focused on building authentic connections between event organizers and attendees.'
-    },
-    {
-      id: 4,
-      name: 'David Rodriguez',
-      role: 'Head of Operations',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      bio: 'Operations expert ensuring smooth event experiences and exceptional customer service for all users.'
-    }
-  ];
 
-  const milestones = [
-    { year: '2020', event: 'Uni Fest Founded', description: 'Started with a vision to democratize event creation' },
-    { year: '2021', event: '10,000 Events Created', description: 'Reached our first major milestone in event creation' },
-    { year: '2022', event: 'Global Expansion', description: 'Expanded to serve events in 50+ countries worldwide' },
-    { year: '2023', event: '1M+ Users', description: 'Built a thriving community of event creators and attendees' },
-    { year: '2024', event: 'AI Integration', description: 'Launched intelligent event recommendation system' }
-  ];
+
+  
 
   const values = [
     {
@@ -79,20 +44,9 @@ const AboutPage = () => {
               We're on a mission to bring people together through unforgettable events. 
               Our platform empowers creators and connects communities worldwide.
             </p>
-            <div className="hero-stats">
-              <div className="stat">
-                <div className="stat-number">50K+</div>
-                <div className="stat-label">Events Created</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">2M+</div>
-                <div className="stat-label">Happy Users</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">500+</div>
-                <div className="stat-label">Cities Worldwide</div>
-              </div>
-            </div>
+            
+         
+         
           </div>
         </div>
       </section>
@@ -105,7 +59,7 @@ const AboutPage = () => {
               <h2>Our Story</h2>
               <p>
                 Uni Fest was born from a simple observation: creating and discovering great events 
-                shouldn't be complicated. In 2020, our founders realized that while technology had 
+                shouldn't be complicated. In 2025, we  realized that while technology had 
                 transformed many industries, event management was still fragmented and difficult to navigate.
               </p>
               <p>
@@ -145,78 +99,13 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="company-timeline">
-        <div className="container">
-          <div className="section-header">
-            <h2>Our Journey</h2>
-            <p>Key milestones in our mission to connect the world through events</p>
-          </div>
-          <div className="timeline">
-            {milestones.map((milestone, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-marker"></div>
-                <div className="timeline-content">
-                  <div className="timeline-year">{milestone.year}</div>
-                  <h3>{milestone.event}</h3>
-                  <p>{milestone.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Team Section */}
-      <section className="our-team">
-        <div className="container">
-          <div className="section-header">
-            <h2>Meet Our Team</h2>
-            <p>The passionate individuals behind Uni Fest</p>
-          </div>
-          <div className="team-grid">
-            {teamMembers.map((member) => (
-              <div key={member.id} className="team-card">
-                <div className="team-image">
-                  <img src={member.image} alt={member.name} />
-                </div>
-                <div className="team-info">
-                  <h3>{member.name}</h3>
-                  <p className="team-role">{member.role}</p>
-                  <p className="team-bio">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Mission Section */}
-      <section className="mission-section">
-        <div className="container">
-          <div className="mission-content">
-            <h2>Our Mission</h2>
-            <p>
-              To create a world where meaningful connections happen effortlessly. We believe that 
-              great events have the power to bring people together, spark new ideas, and create 
-              lasting memories that enrich our lives.
-            </p>
-            <div className="mission-features">
-              <div className="feature">
-                <h3>For Event Creators</h3>
-                <p>Powerful tools to bring your vision to life with ease and confidence.</p>
-              </div>
-              <div className="feature">
-                <h3>For Attendees</h3>
-                <p>Discover events that align with your interests and connect with like-minded people.</p>
-              </div>
-              <div className="feature">
-                <h3>For Communities</h3>
-                <p>Foster stronger bonds and create shared experiences that matter.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Footer */}
       <footer className="footer">

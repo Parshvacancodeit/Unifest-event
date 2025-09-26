@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import { FaMusic, FaLaptopCode, FaBriefcase, FaPalette, FaUtensils, FaFootballBall, FaHeartbeat, FaBook } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
 const categories = [
   { name: 'Music', icon: <FaMusic />, count: 245 },
   { name: 'Technology', icon: <FaLaptopCode />, count: 189 },
@@ -12,7 +13,6 @@ const categories = [
   { name: 'Education', icon: <FaBook />, count: 134 }
 ];
 
-
 const CategoryCarousel = () => {
   const settings = {
     dots: true,
@@ -20,10 +20,12 @@ const CategoryCarousel = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    centerMode: true,           // makes carousel centered and gives spacing on sides
+    centerPadding: '40px',      // adds spacing on edges
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
+      { breakpoint: 1200, settings: { slidesToShow: 3, centerPadding: '30px' } },
+      { breakpoint: 992, settings: { slidesToShow: 2, centerPadding: '20px' } },
+      { breakpoint: 576, settings: { slidesToShow: 1, centerPadding: '15px' } },
     ]
   };
 

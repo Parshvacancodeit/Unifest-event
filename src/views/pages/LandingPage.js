@@ -6,6 +6,7 @@ import EventsSection from './EventsSection';
 import "./events.css";
 import FeaturedEvent from './FeaturedEvent';
 import CategoryCarousel from './CategoryCarousel';
+import { FaRegLightbulb, FaLock, FaChartLine } from "react-icons/fa";
 
 
 const LandingPage = () => {
@@ -39,69 +40,70 @@ const LandingPage = () => {
       
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-background">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Event audience" className="hero-image" />
-          <div className="hero-overlay"></div>
-        </div>
-        
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title">
-              Discover Amazing Events<br />
-              <span className="hero-subtitle">Create, Manage & Attend</span>
-            </h1>
-            
-            <p className="hero-description">
-              Join millions of people discovering and creating incredible events. 
-              Find your next adventure or bring your vision to life.
-            </p>
-            
-            <div className="search-form">
-              <form onSubmit={handleSearch}>
-                <div className="search-fields">
-                  <div className="search-field">
-                    <label>Looking for</label>
-                    <input
-                      type="text"
-                      placeholder="Event, activity, or keyword"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                  </div>
-                  
-                  <div className="search-field">
-                    <label>Location</label>
-                    <input
-                      type="text"
-                      placeholder="City or venue"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                    />
-                  </div>
-                  
-                  <div className="search-field">
-                    <label>When</label>
-                    <select
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    >
-                      <option value="">Any time</option>
-                      <option value="today">Today</option>
-                      <option value="tomorrow">Tomorrow</option>
-                      <option value="weekend">This weekend</option>
-                      <option value="week">This week</option>
-                    </select>
-                  </div>
-                  
-                  <button type="submit" className="search-btn">
-                    Search Events
-                  </button>
-                </div>
-              </form>
-            </div>
+  <div className="hero-background">
+    <img
+      src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+      alt="Event audience"
+      className="hero-image"
+    />
+    <div className="hero-overlay"></div>
+  </div>
+
+  <div className="hero-content">
+    <h1 className="hero-title">
+      Discover Amazing Events
+    </h1>
+    <p className="hero-subtitle">
+      Join millions of people discovering and creating incredible events.
+    </p>
+
+    <p className="hero-description">
+      Find your next adventure or bring your vision to life.
+    </p>
+
+    <div className="search-form">
+      <form onSubmit={handleSearch}>
+        <div className="search-fields">
+          <div className="search-field">
+            <input
+              type="text"
+              placeholder="Event, activity, or keyword"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
+
+          <div className="search-field">
+            <input
+              type="text"
+              placeholder="City or venue"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+
+          <div className="search-field">
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Any time</option>
+              <option value="today">Today</option>
+              <option value="tomorrow">Tomorrow</option>
+              <option value="weekend">This weekend</option>
+              <option value="week">This week</option>
+            </select>
+          </div>
+
+          <button type="submit" className="search-btn">
+            Search
+          </button>
         </div>
-      </section>
+      </form>
+    </div>
+  </div>
+</section>
+
 
       {/* Platform Statistics */}
       <section className="platform-stats">
@@ -121,49 +123,52 @@ const LandingPage = () => {
 
       <FeaturedEvent/>
 
-      <CategoryCarousel/>
-      <img 
-  src='Create_Events.png' 
-  alt='' 
-/>
+      
+    
 
       {/* Create Event CTA */}
       <section className="create-event-cta">
-        <div className="container">
-          <div className="cta-content">
-            <div className="cta-text">
-              <h2>Ready to Create Your Own Event?</h2>
-              <p>Join thousands of event organizers who trust Uni Fest to bring their visions to life. Our powerful tools make event management simple and effective.</p>
-              <div className="cta-features">
-                <div className="cta-feature">
-                  <div className="feature-icon">🎯</div>
-                  <span>Easy Event Setup</span>
-                </div>
-                <div className="cta-feature">
-                  <div className="feature-icon">💳</div>
-                  <span>Secure Payment Processing</span>
-                </div>
-                <div className="cta-feature">
-                  <div className="feature-icon">📊</div>
-                  <span>Real-time Analytics</span>
-                </div>
-              </div>
-              <div className="cta-buttons">
-                <Link to="/register" className="btn btn-primary">
-                  Start Creating
-                </Link>
-                <Link to="/login" className="btn btn-outline">
-                  Login to Dashboard
-                </Link>
-              </div>
-            </div>
-            
-            <div className="cta-image">
-              <img src="/pablo-heimplatz-ZODcBkEohk8-unsplash.jpg" alt="Create Event Dashboard" />
-            </div>
+  <div className="container">
+    <div className="cta-content">
+      
+      {/* Text Section */}
+      <div className="cta-text">
+        <h2>Ready to Create Your Own Event?</h2>
+        <p>
+          Join thousands of event organizers who trust Uni Fest to bring their visions to life. Our powerful tools make event management simple and effective.
+        </p>
+
+        {/* Features */}
+        <div className="cta-features">
+          <div className="cta-feature">
+            <div className="feature-icon"><FaRegLightbulb /></div>
+            <span>Easy Event Setup</span>
+          </div>
+          <div className="cta-feature">
+            <div className="feature-icon"><FaLock /></div>
+            <span>Secure Payment Processing</span>
+          </div>
+          <div className="cta-feature">
+            <div className="feature-icon"><FaChartLine /></div>
+            <span>Real-time Analytics</span>
           </div>
         </div>
-      </section>
+
+        {/* Buttons */}
+        <div className="cta-buttons">
+          <Link to="/register" className="btn btn-primary">Start Creating</Link>
+          <Link to="/login" className="btn btn-outline">Login to Dashboard</Link>
+        </div>
+      </div>
+
+      {/* Image Section */}
+      <div className="cta-image">
+        <img src="/pablo-heimplatz-ZODcBkEohk8-unsplash.jpg" alt="Create Event Dashboard" />
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Partner Organizations */}
       <section className="partner-brands">

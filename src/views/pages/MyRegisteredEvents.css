@@ -1,0 +1,241 @@
+/* MyRegisteredEvents.css */
+
+/* General container padding */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Section Titles */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1e1b4b;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #7C3AED, #A855F7);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Sort button styling */
+.sort-filter-container .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #7C3AED;
+  color: #7C3AED;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.sort-filter-container .btn:hover {
+  background: #7C3AED;
+  color: white;
+}
+
+/* Events Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Event Card */
+.event-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 400px; /* Ensure all cards have same height */
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Event Card Image */
+.event-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Event Content */
+.event-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+/* Card Header */
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.event-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.event-card-price {
+  font-weight: 600;
+  color: #7C3AED;
+  font-size: 1rem;
+}
+
+/* Card Details */
+.event-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.event-card-date,
+.event-card-location,
+.event-card-type {
+  font-size: 0.9rem;
+  color: #4b4b60;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: #EDE9FE;
+  color: #7C3AED;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+/* Arrow Button */
+.event-arrow-btn {
+  align-self: flex-end;
+  margin-top: 0.8rem;
+  background: linear-gradient(135deg, #7C3AED, #A855F7);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-arrow-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(124,58,237,0.4);
+}
+
+/* Load More Button */
+.load-more-btn {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.65rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #7C3AED, #A855F7);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.load-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124,58,237,0.4);
+}
+
+/* Upcoming Events Carousel */
+.category-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 0 0.5rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.category-icon img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 0.6rem;
+}
+
+.category-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e1b4b;
+  margin-bottom: 0.3rem;
+}
+
+.category-count {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+
+.event-card {
+  min-height: 500px; /* increased to fit description & volunteers */
+  padding: 1rem;
+}
+
+.event-card-description {
+  font-size: 0.9rem;
+  color: #4b4b60;
+  margin: 0.5rem 0;
+  line-height: 1.3rem;
+}
+
+.event-card-capacity,
+.event-card-volunteers {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.3rem;
+}
+
+.category-card {
+  min-height: 300px; /* bigger card */
+  padding: 1rem;
+}
+
+.category-description {
+  font-size: 0.85rem;
+  color: #4b4b60;
+  margin: 0.3rem 0;
+}
+.category-price {
+  font-weight: 600;
+  color: #7C3AED;
+}
+
+.section-title{
+    margin-top: 50px;
+}
