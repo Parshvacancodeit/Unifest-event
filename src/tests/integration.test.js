@@ -152,7 +152,7 @@ describe('Event Hive Application Tests', () => {
     test('app renders without crashing', () => {
       render(<App />);
       // Should render the landing page by default
-      expect(screen.getByText(/Event Hive/i)).toBeInTheDocument();
+      expect(screen.getByText(/Uni Fest/i)).toBeInTheDocument();
     });
   });
 

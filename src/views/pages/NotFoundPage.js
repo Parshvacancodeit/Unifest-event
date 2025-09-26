@@ -73,19 +73,19 @@ const NotFoundPage = () => {
         <div className="container">
           <p className="social-title">Follow us on</p>
           <div className="social-links">
-            <a href="https://instagram.com/eventhive" className="social-link instagram" aria-label="Follow us on Instagram">
+            <a href="https://instagram.com/unifestr" className="social-link instagram" aria-label="Follow us on Instagram">
               <Instagram size={24} />
             </a>
-            <a href="https://facebook.com/eventhive" className="social-link facebook" aria-label="Follow us on Facebook">
+            <a href="https://facebook.com/unifestr" className="social-link facebook" aria-label="Follow us on Facebook">
               <Facebook size={24} />
             </a>
-            <a href="https://linkedin.com/company/eventhive" className="social-link linkedin" aria-label="Follow us on LinkedIn">
+            <a href="https://linkedin.com/company/unifestr" className="social-link linkedin" aria-label="Follow us on LinkedIn">
               <Linkedin size={24} />
             </a>
-            <a href="https://twitter.com/eventhive" className="social-link twitter" aria-label="Follow us on Twitter">
+            <a href="https://twitter.com/unifestr" className="social-link twitter" aria-label="Follow us on Twitter">
               <Twitter size={24} />
             </a>
-            <a href="https://youtube.com/eventhive" className="social-link youtube" aria-label="Follow us on YouTube">
+            <a href="https://youtube.com/unifestr" className="social-link youtube" aria-label="Follow us on YouTube">
               <Youtube size={24} />
             </a>
           </div>
@@ -131,7 +131,7 @@ const NotFoundPage = () => {
         <div className="footer-bottom">
           <div className="container">
             <div className="footer-bottom-content">
-              <p>© 2023 Event Hive. All rights reserved.</p>
+              <p>© 2023 Uni Fest. All rights reserved.</p>
               <p>Non Copyrighted © 2023 Upload by rich technologies</p>
             </div>
           </div>

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, MapPin, Users, Share2, Heart, Star, ArrowLeft, Ticket } from 'lucide-react';
+import { getToken } from '../../services/authService'; // if needed
+import axiosInstance from '../../services/axiosInstance'; // your axios instance
 import './EventDetailPage.css';
+import { registerForEvent, getMyRegistrations } from '../../services/registrationService';
+
+
+const API = "https://eventbooking-b888.onrender.com";
 
 const EventDetailPage = () => {
   const { id } = useParams();
@@ -9,55 +15,69 @@ const EventDetailPage = () => {
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
+  const [registering, setRegistering] = useState(false);
+const [registered, setRegistered] = useState(false);
+
+useEffect(() => {
+  const checkRegistration = async () => {
+    if (!event) return;
+    try {
+      const myRegistrations = await getMyRegistrations();
+      const isAlreadyRegistered = myRegistrations.some(reg => reg.event_id === event.id);
+      setRegistered(isAlreadyRegistered);
+    } catch (error) {
+      console.error("Error checking registration:", error);
+    }
+  };
+  checkRegistration();
+}, [event]);
+
 
   useEffect(() => {
-    // Simulate API call to fetch event details
     const fetchEvent = async () => {
       setLoading(true);
-      // Mock event data - replace with actual API call
-      const mockEvent = {
-        id: id,
-        title: "Music Festival 2024",
-        description: "Join us for an unforgettable music festival featuring top artists from around the world. Experience live performances, food vendors, and an amazing atmosphere.",
-        longDescription: `Get ready for the most spectacular music festival of the year! This three-day event brings together world-class artists, delicious food, and an incredible community of music lovers.
+      try {
+        const res = await axiosInstance.get(`${API}/events/${id}`, {
+          headers: { Authorization: `Bearer ${getToken()}` },
+        });
+        const eventData = res.data;
 
-        What to expect:
-        • Live performances from 50+ artists across 5 stages
-        • Local and international food vendors
-        • Art installations and interactive experiences
-        • Camping facilities available
-        • VIP packages with exclusive access
-        
-        Don't miss this once-in-a-lifetime experience!`,
-        image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        date: "2024-07-15",
-        time: "18:00",
-        location: "Central Park, New York",
-        category: "Music",
-        price: 89.99,
-        organizer: "Music Events Inc.",
-        capacity: 5000,
-        attendees: 2847,
-        rating: 4.8,
-        reviews: 324
-      };
+        // Map API fields to your frontend structure
+        const mappedEvent = {
+          id: eventData.id,
+          title: eventData.title,
+          description: eventData.description,
+          longDescription: eventData.description, // API has only description
+          image: eventData.image_url,
+          date: eventData.date_time,
+          time: new Date(eventData.date_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          location: eventData.location,
+          category: eventData.event_type,
+          price: eventData.fees,
+          organizer: eventData.created_by, // You can map to organizer name if available
+          capacity: eventData.capacity,
+          attendees: eventData.volunteers?.length || 0,
+          rating: 0, // Not provided by API
+          reviews: 0 // Not provided by API
+        };
 
-      setTimeout(() => {
-        setEvent(mockEvent);
+        setEvent(mappedEvent);
+      } catch (error) {
+        console.error("Failed to fetch event:", error);
+        setEvent(null);
+      } finally {
         setLoading(false);
-      }, 1000);
+      }
     };
 
     fetchEvent();
   }, [id]);
 
   const handleBookTicket = () => {
-    // Handle ticket booking logic
     alert('Booking functionality would be implemented here!');
   };
 
   const handleShare = () => {
-    // Handle share functionality
     if (navigator.share) {
       navigator.share({
         title: event?.title,
@@ -70,29 +90,39 @@ const EventDetailPage = () => {
     }
   };
 
-  const toggleLike = () => {
-    setIsLiked(!isLiked);
-  };
-
-  if (loading) {
-    return (
-      <div className="event-detail-loading">
-        <div className="loading-spinner"></div>
-        <p>Loading event details...</p>
-      </div>
-    );
+  const handleRegister = async () => {
+  if (!event) return;
+  setRegistering(true);
+  try {
+    await registerForEvent(event.id);
+    setRegistered(true);
+    alert("You have successfully registered for the event!");
+  } catch (error) {
+    console.error("Registration failed:", error);
+    alert("You have already registered or registration failed.");
+  } finally {
+    setRegistering(false);
   }
+};
 
-  if (!event) {
-    return (
-      <div className="event-detail-error">
-        <h2>Event not found</h2>
-        <button onClick={() => navigate('/events')} className="btn btn-primary">
-          Back to Events
-        </button>
-      </div>
-    );
-  }
+
+  const toggleLike = () => setIsLiked(!isLiked);
+
+  if (loading) return (
+    <div className="event-detail-loading">
+      <div className="loading-spinner"></div>
+      <p>Loading event details...</p>
+    </div>
+  );
+
+  if (!event) return (
+    <div className="event-detail-error">
+      <h2>Event not found</h2>
+      <button onClick={() => navigate('/events')} className="btn btn-primary">
+        Back to Events
+      </button>
+    </div>
+  );
 
   return (
     <div className="event-detail-page">
@@ -213,7 +243,7 @@ const EventDetailPage = () => {
         <div className="event-sidebar">
           <div className="booking-card">
             <div className="price-section">
-              <div className="price">${event.price}</div>
+              <div className="price">₹{event.price}</div>
               <div className="price-label">per ticket</div>
             </div>
 
@@ -229,10 +259,18 @@ const EventDetailPage = () => {
               </div>
             </div>
 
-            <button onClick={handleBookTicket} className="btn btn-primary btn-full">
-              <Ticket size={20} />
-              Book Ticket
-            </button>
+            <button
+  onClick={handleRegister}
+  className="btn btn-primary btn-full"
+  disabled={registering || registered}
+>
+  {registered
+    ? "You have already registered"
+    : registering
+    ? "Registering..."
+    : "Register"}
+</button>
+
 
             <div className="booking-features">
               <div className="feature">✓ Instant confirmation</div>

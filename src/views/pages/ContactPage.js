@@ -81,19 +81,19 @@ const ContactPage = () => {
     {
       title: 'General Support',
       description: 'Get help with your account, events, or platform questions',
-      email: 'support@eventhive.com',
+      email: 'support@unifestr.com',
       hours: 'Mon-Fri 9AM-6PM EST'
     },
     {
       title: 'Business Inquiries',
       description: 'Partnership opportunities, enterprise solutions, and bulk licensing',
-      email: 'business@eventhive.com',
+      email: 'business@unifestr.com',
       hours: 'Mon-Fri 9AM-5PM EST'
     },
     {
       title: 'Press & Media',
       description: 'Media inquiries, press kits, and interview requests',
-      email: 'press@eventhive.com',
+      email: 'press@unifestr.com',
       hours: 'Mon-Fri 9AM-5PM EST'
     }
   ];
@@ -125,7 +125,7 @@ const ContactPage = () => {
       answer: 'Creating an event is simple! Sign up for an account, click "Create Event" in your dashboard, fill in your event details, and publish. Our step-by-step guide will walk you through the process.'
     },
     {
-      question: 'What are the fees for using Event Hive?',
+      question: 'What are the fees for using Uni Fest?',
       answer: 'We offer competitive pricing with no monthly fees. We charge a small percentage only when you sell paid tickets. Free events are always free to create and manage.'
     },
     {
@@ -134,7 +134,7 @@ const ContactPage = () => {
     },
     {
       question: 'How do I promote my event?',
-      answer: 'Event Hive provides built-in promotional tools including social media sharing, email marketing, and our event discovery platform. We also offer premium marketing features for maximum visibility.'
+      answer: 'Uni Fest provides built-in promotional tools including social media sharing, email marketing, and our event discovery platform. We also offer premium marketing features for maximum visibility.'
     },
     {
       question: 'Is there a mobile app?',
@@ -411,7 +411,7 @@ const ContactPage = () => {
         <div className="footer-bottom">
           <div className="container">
             <div className="footer-bottom-content">
-              <p>© 2024 Event Hive. All rights reserved.</p>
+              <p>© 2024 Uni Fest. All rights reserved.</p>
               <p>Made with passion for connecting communities</p>
             </div>
           </div>

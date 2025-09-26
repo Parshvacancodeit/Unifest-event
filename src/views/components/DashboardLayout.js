@@ -1,22 +1,39 @@
 import React, { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   Calendar, 
-  MessageSquare, 
-  User, 
-  Settings,
+  Plus, 
+  Users, 
   LogOut,
   Menu,
   X,
-  Plus
+  User,
+  Settings
 } from 'lucide-react';
 import './DashboardLayout.css';
+import { logout } from "../../services/authService"; // 👈 import your service
+
 
 const DashboardLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
+  // inside DashboardLayout
+const navigate = useNavigate();
+
+const handleLogout = () => {
+  logout();         // clear storage & tokens in one place
+  navigate("/");    // redirect to login
+};
+
+
+
+
+
+  // Admin navigation (only necessary tabs for admin)
   const navigation = [
     {
       name: 'Dashboard',
@@ -25,34 +42,26 @@ const DashboardLayout = ({ children }) => {
       current: location.pathname === '/dashboard'
     },
     {
-      name: 'My Events',
+      name: 'Events',
       href: '/dashboard/events',
       icon: Calendar,
       current: location.pathname === '/dashboard/events'
     },
     {
-      name: 'Create Event',
-      href: '/dashboard/create-event',
-      icon: Plus,
-      current: location.pathname === '/dashboard/create-event'
+      name: 'Volunteers',
+      href: '/dashboard/volunteers',
+      icon: Users,
+      current: location.pathname === '/dashboard/volunteers'
     },
     {
-      name: 'Messages',
-      href: '/dashboard/messages',
-      icon: MessageSquare,
-      current: location.pathname === '/dashboard/messages'
-    },
-    {
-      name: 'Profile',
-      href: '/dashboard/profile',
-      icon: User,
-      current: location.pathname === '/dashboard/profile'
+      name: 'Registrations',
+      href: '/dashboard/registrations',
+      icon: Users,
+      current: location.pathname === '/dashboard/registrations'
     }
   ];
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
     <div className="dashboard-layout">
@@ -68,7 +77,7 @@ const DashboardLayout = ({ children }) => {
       <div className={`sidebar ${sidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
           <Link to="/" className="sidebar-logo">
-            Event <span className="text-primary">Hive</span>
+            Uni <span className="text-primary">Fest</span>
           </Link>
           <button 
             className="sidebar-close"
@@ -99,46 +108,23 @@ const DashboardLayout = ({ children }) => {
         </nav>
 
         <div className="sidebar-footer">
-          <Link to="/dashboard/settings" className="nav-item">
-            <Settings size={20} />
-            <span>Settings</span>
-          </Link>
-          <Link to="/login" className="nav-item">
-            <LogOut size={20} />
-            <span>Logout</span>
-          </Link>
-        </div>
+  <Link to="/dashboard/settings" className="nav-item">
+    <Settings size={20} />
+    <span>Settings</span>
+  </Link>
+  
+  <button onClick={handleLogout} className="nav-item logout-btn">
+    <LogOut size={20} />
+    <span>Logout</span>
+  </button>
+</div>
+
       </div>
 
       {/* Main content */}
       <div className="main-content">
         {/* Top bar */}
-        <header className="top-bar">
-          <div className="top-bar-left">
-            <button 
-              className="menu-button"
-              onClick={toggleSidebar}
-            >
-              <Menu size={20} />
-            </button>
-            <h1 className="page-title">
-              {navigation.find(item => item.current)?.name || 'Dashboard'}
-            </h1>
-          </div>
-          
-          <div className="top-bar-right">
-            <Link to="/dashboard/create-event" className="btn btn-primary">
-              <Plus size={16} />
-              Create Event
-            </Link>
-            
-            <div className="user-menu">
-              <div className="user-avatar">
-                <span>JD</span>
-              </div>
-            </div>
-          </div>
-        </header>
+       
 
         {/* Page content */}
         <main className="page-content">

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import './AboutPage.css';
 
+
 const AboutPage = () => {
   const teamMembers = [
     {
@@ -9,7 +10,7 @@ const AboutPage = () => {
       name: 'Sarah Johnson',
       role: 'Founder & CEO',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-      bio: 'With over 10 years in event management, Sarah founded Event Hive to revolutionize how people discover and create events.'
+      bio: 'With over 10 years in event management, Sarah founded Uni Fest to revolutionize how people discover and create events.'
     },
     {
       id: 2,
@@ -35,7 +36,7 @@ const AboutPage = () => {
   ];
 
   const milestones = [
-    { year: '2020', event: 'Event Hive Founded', description: 'Started with a vision to democratize event creation' },
+    { year: '2020', event: 'Uni Fest Founded', description: 'Started with a vision to democratize event creation' },
     { year: '2021', event: '10,000 Events Created', description: 'Reached our first major milestone in event creation' },
     { year: '2022', event: 'Global Expansion', description: 'Expanded to serve events in 50+ countries worldwide' },
     { year: '2023', event: '1M+ Users', description: 'Built a thriving community of event creators and attendees' },
@@ -73,7 +74,7 @@ const AboutPage = () => {
         </div>
         <div className="container">
           <div className="hero-content">
-            <h1>About Event Hive</h1>
+            <h1>About Uni Fest</h1>
             <p className="hero-subtitle">
               We're on a mission to bring people together through unforgettable events. 
               Our platform empowers creators and connects communities worldwide.
@@ -103,7 +104,7 @@ const AboutPage = () => {
             <div className="story-text">
               <h2>Our Story</h2>
               <p>
-                Event Hive was born from a simple observation: creating and discovering great events 
+                Uni Fest was born from a simple observation: creating and discovering great events 
                 shouldn't be complicated. In 2020, our founders realized that while technology had 
                 transformed many industries, event management was still fragmented and difficult to navigate.
               </p>
@@ -113,7 +114,7 @@ const AboutPage = () => {
                 that truly matter to them.
               </p>
               <p>
-                Today, Event Hive serves millions of users across the globe, from intimate community 
+                Today, Uni Fest serves millions of users across the globe, from intimate community 
                 gatherings to large-scale festivals. We're proud to be part of countless memorable moments 
                 and continue to innovate for the future of events.
               </p>
@@ -170,7 +171,7 @@ const AboutPage = () => {
         <div className="container">
           <div className="section-header">
             <h2>Meet Our Team</h2>
-            <p>The passionate individuals behind Event Hive</p>
+            <p>The passionate individuals behind Uni Fest</p>
           </div>
           <div className="team-grid">
             {teamMembers.map((member) => (
@@ -264,7 +265,7 @@ const AboutPage = () => {
         <div className="footer-bottom">
           <div className="container">
             <div className="footer-bottom-content">
-              <p>© 2024 Event Hive. All rights reserved.</p>
+              <p>© 2024 Uni Fest. All rights reserved.</p>
               <p>Made with passion for connecting communities</p>
             </div>
           </div>
