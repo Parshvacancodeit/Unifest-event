@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import '/Users/parshvapatel/Event-Management-System/src/App.css';
+import '../src/App.css';
 
 // Public pages
 import LandingPage from "./views/pages/LandingPage";
